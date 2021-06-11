@@ -21,7 +21,8 @@ namespace TextEditorWPF.Pages
             {
                 SetAndNotify(ref selectedFile, value);
                 CanSave = SelectedFile != null;
-                value.IsSaved = false;
+
+                if (value != null) value.IsSaved = false;
             }
         }
 
