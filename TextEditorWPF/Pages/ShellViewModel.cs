@@ -1,6 +1,7 @@
 ﻿using Stylet;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace TextEditorWPF.Pages
             {
                 SetAndNotify(ref selectedFile, value);
                 CanSave = SelectedFile != null;
+                Debug.WriteLine(selectedFile.Content == value.Content);
 
                 if (value != null) value.IsSaved = false;
             }
@@ -76,7 +78,7 @@ namespace TextEditorWPF.Pages
                         return true;
                 }
             }
-            return true;
+            return false;
         }
 
         public async void OpenFile()
